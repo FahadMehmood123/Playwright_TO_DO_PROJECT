@@ -87,9 +87,12 @@ test.only("T6_Checkbox_Behaviour",async({page})=>{
     await page.getByTestId('text-input').press('Enter');
     await page.getByRole('listitem').filter({ hasText: 'work' }).getByTestId('todo-item-toggle').check();
     expect(page.getByRole('listitem').filter({ hasText: 'work' }).getByTestId('todo-item-toggle')).toBeChecked();
+    
+    //tocheckCSS 
     expect(page.locator("#root > main > ul > li:nth-child(1) > div > label")).toHaveCSS('text-decoration','line-through')
+    
     await page.getByRole('listitem').filter({ hasText: 'place' }).getByTestId('todo-item-toggle').check();
     expect(page.getByRole('listitem').filter({ hasText: 'place' }).getByTestId('todo-item-toggle')).toBeChecked();
 
-
 })
+
