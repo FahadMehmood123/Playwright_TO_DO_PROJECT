@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { PracticeFormPage } from '../Generalize';
 
-test.only('T1_overall_flow', async ({ page }) => {
+test('T1_overall_flow', async ({ page }) => {
   await page.goto('https://demoqa.com/automation-practice-form');
   await page.getByRole('textbox', { name: 'First Name' }).click();
   await page.getByRole('textbox', { name: 'First Name' }).fill('Fahad');
@@ -58,7 +58,7 @@ test('T2_Negative_email_Test',async({page})=>{
     await page.goto('https://demoqa.com/automation-practice-form');
     await page.getByRole('textbox', { name: 'name@example.com' }).fill('fahad@gmailcom');
     await page.getByRole('button', { name: 'Submit' }).click();
-    expect(page.locator('#userEmail')).toHaveCSS('border-color','rgb(220, 53, 69)')
+    expect.soft(page.locator('#userEmail')).toHaveCSS('border-color','rgb(220, 53, 69)')
   
 })
 
@@ -66,7 +66,7 @@ test('T3_Negative_Mobile_Number_Test',async({page})=>{
     await page.goto('https://demoqa.com/automation-practice-form');
     await page.getByRole('textbox', { name: 'Mobile Number' }).click();
     await page.getByRole('textbox', { name: 'Mobile Number' }).fill('031588330');
-    expect(page.locator('#userNumber')).toHaveCSS('border-color','rgb(220, 53, 69)')
+    expect.soft(page.locator('#userNumber')).toHaveCSS('border-color','rgb(220, 53, 69)')
   
 })
 
