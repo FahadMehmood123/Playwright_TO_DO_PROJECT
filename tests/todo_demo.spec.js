@@ -76,7 +76,7 @@ test("T5_check_Completed_item_list",async({page})=>{
 })
 
 
-test.only("T6_Checkbox_Behaviour",async({page})=>{
+test("T6_Checkbox_Behaviour",async({page})=>{
     await page.goto('https://todomvc.com/examples/react/dist/#/');
     await page.getByTestId('text-input').click();
     await page.getByTestId('text-input').fill('work');
