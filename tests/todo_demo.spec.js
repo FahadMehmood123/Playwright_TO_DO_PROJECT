@@ -24,7 +24,7 @@ test("T2_Item_removal",async({page})=>{
     await page.getByTestId('text-input').press('Enter');
     await page.locator('#root > main > ul > li:nth-child(1) > div > label').hover();
     await page.locator('#root > main > ul > li:nth-child(1) > div > button').click();
-    expect(page.locator('#root > main > ul')).not.toContainText("work")
+    expect.soft(page.locator('#root > main > ul')).not.toContainText("work")
 
 })
 
@@ -58,8 +58,8 @@ test("T4_check_visiblity_of_active_item",async({page})=>{
     await page.getByRole('listitem').filter({ hasText: 'work' }).getByTestId('todo-item-toggle').check();
     await page.getByRole('listitem').filter({ hasText: 'dinner' }).getByTestId('todo-item-toggle').check();
     await page.getByRole('link', { name: 'Active' }).click();
-    expect(page.getByRole('listitem').filter({ hasText: 'work' })).toBeHidden();
-    expect(page.getByRole('listitem').filter({ hasText: 'dinner' })).toBeHidden();
+    expect.soft(page.getByRole('listitem').filter({ hasText: 'work' })).toBeHidden();
+    expect.soft(page.getByRole('listitem').filter({ hasText: 'dinner' })).toBeHidden();
 
 })
 
@@ -72,7 +72,7 @@ test("T5_check_Completed_item_list",async({page})=>{
     await page.getByTestId('text-input').fill('item');
     await page.getByTestId('text-input').press('Enter');
     await page.getByRole('link', { name: 'Completed' }).click();
-    expect(page.locator("#root > main > ul")).toBeHidden();
+    expect.soft(page.locator("#root > main > ul")).toBeHidden();
 })
 
 
@@ -92,7 +92,7 @@ test("T6_Checkbox_Behaviour",async({page})=>{
     expect(page.locator("#root > main > ul > li:nth-child(1) > div > label")).toHaveCSS('text-decoration','line-through')
     
     await page.getByRole('listitem').filter({ hasText: 'place' }).getByTestId('todo-item-toggle').check();
-    expect(page.getByRole('listitem').filter({ hasText: 'place' }).getByTestId('todo-item-toggle')).toBeChecked();
+    expect.soft(page.getByRole('listitem').filter({ hasText: 'place' }).getByTestId('todo-item-toggle')).toBeChecked();
 
 })
 

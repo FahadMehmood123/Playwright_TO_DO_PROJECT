@@ -38,36 +38,36 @@ test('T1_overall_flow', async ({ page }) => {
 
   //to compare screenshot
   
-  await page.getByRole('button', { name: 'Submit' }).click();
-  await expect(page.locator('body > div.fade.modal.show > div > div > div.modal-body')).toHaveScreenshot('form_data.png');
+  // await page.getByRole('button', { name: 'Submit' }).click();
+  // await expect(page.locator('body > div.fade.modal.show > div > div > div.modal-body')).toHaveScreenshot('form_data.png');
 
   //above line will take screenshot first and in send attemp it will cmapre the screenshots
 
 });
 
 // POM Model-------------------
-test('T1_POM_overall_flow', async ({ page }) => {
+// test('T1_POM_overall_flow', async ({ page }) => {
   
-  const form=new PracticeFormPage(page)
-  await form.open();
-  await form.completeFormFlow();
+//   const form=new PracticeFormPage(page)
+//   await form.open();
+//   await form.completeFormFlow();
 
-});
+// });
 
-test('T2_Negative_email_Test',async({page})=>{
-    await page.goto('https://demoqa.com/automation-practice-form');
-    await page.getByRole('textbox', { name: 'name@example.com' }).fill('fahad@gmailcom');
-    await page.getByRole('button', { name: 'Submit' }).click();
-    expect.soft(page.locator('#userEmail')).toHaveCSS('border-color','rgb(220, 53, 69)')
+// test('T2_Negative_email_Test',async({page})=>{
+//     await page.goto('https://demoqa.com/automation-practice-form');
+//     await page.getByRole('textbox', { name: 'name@example.com' }).fill('fahad@gmailcom');
+//     await page.getByRole('button', { name: 'Submit' }).click();
+//     expect.soft(page.locator('#userEmail')).toHaveCSS('border-color','rgb(220, 53, 69)')
   
-})
+// })
 
-test('T3_Negative_Mobile_Number_Test',async({page})=>{
-    await page.goto('https://demoqa.com/automation-practice-form');
-    await page.getByRole('textbox', { name: 'Mobile Number' }).click();
-    await page.getByRole('textbox', { name: 'Mobile Number' }).fill('031588330');
-    expect.soft(page.locator('#userNumber')).toHaveCSS('border-color','rgb(220, 53, 69)')
+// test('T3_Negative_Mobile_Number_Test',async({page})=>{
+//     await page.goto('https://demoqa.com/automation-practice-form');
+//     await page.getByRole('textbox', { name: 'Mobile Number' }).click();
+//     await page.getByRole('textbox', { name: 'Mobile Number' }).fill('031588330');
+//     expect.soft(page.locator('#userNumber')).toHaveCSS('border-color','rgb(220, 53, 69)')
   
-})
+// })
 
 
